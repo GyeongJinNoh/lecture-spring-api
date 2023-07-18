@@ -1,5 +1,6 @@
-package events;
+package com.example.demo.events;
 
+import com.example.demo.events.Event;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
