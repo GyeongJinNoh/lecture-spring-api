@@ -116,10 +116,10 @@ public class EventControllerTests {
         EventDto eventDto = EventDto.builder()
                 .name("Spring")
                 .description("REST API Development with Spring")
-                .beginEnrollmentDateTime(LocalDateTime.of(2023, 07, 18, 19, 54))
-                .closeEnrollmentDateTime(LocalDateTime.of(2023, 07, 18, 19, 54))
-                .beginEventDateTime(LocalDateTime.of(2023, 07, 19, 19, 54))
-                .endEventDateTime(LocalDateTime.of(2023, 07, 18, 19, 54))
+                .beginEnrollmentDateTime(LocalDateTime.of(2023, 8, 18, 19, 54))
+                .closeEnrollmentDateTime(LocalDateTime.of(2023, 7, 18, 19, 54))
+                .beginEventDateTime(LocalDateTime.of(2023, 7, 19, 19, 54))
+                .endEventDateTime(LocalDateTime.of(2023, 7, 18, 19, 54))
                 .basePrice(10000)
                 .maxPrice(200)
                 .limitOfEnrollment(100)
@@ -129,7 +129,12 @@ public class EventControllerTests {
         this.mockMvc.perform(post("/api/events")
                         .contentType(MediaType.APPLICATION_JSON_UTF8)
                         .content(this.objectMapper.writeValueAsString(eventDto)))
-                .andExpect(status().isBadRequest());
+                .andDo(print())
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$[0].objectName").exists())
+                .andExpect(jsonPath("$[0].field").exists())
+                .andExpect(jsonPath("$[0].defaultMessage").exists())
+        ;
     }
 
 }
