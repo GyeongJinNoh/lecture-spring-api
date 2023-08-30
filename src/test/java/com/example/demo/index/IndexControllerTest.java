@@ -1,6 +1,6 @@
 package com.example.demo.index;
 
-import com.example.demo.common.BaseControllerTest;
+import com.example.demo.common.BaseTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.MockMvc;
@@ -10,7 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-public class IndexControllerTest extends BaseControllerTest {
+public class IndexControllerTest extends BaseTest {
     @Autowired
     MockMvc mockMvc;
 

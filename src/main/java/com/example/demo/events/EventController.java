@@ -98,7 +98,7 @@ public class EventController {
         EventResource eventResource = new EventResource(event);
         eventResource.add(Link.of("docs/index.html#resources-events-get").withRel("profile"));
 
-        if(event.equals(currentUser)) {
+        if(event.getManager().equals(currentUser)) {
             eventResource.add(linkTo(EventController.class).slash(event.getId()).withRel("update-event"));
         }
         return ResponseEntity.ok(eventResource);
@@ -127,7 +127,6 @@ public class EventController {
         }
 
         Event existingEvent = optionalEvent.get();
-        existingEvent.setManager(currentUser);
         if(!existingEvent.getManager().equals(currentUser)) {
             return new ResponseEntity(HttpStatus.UNAUTHORIZED);
         }

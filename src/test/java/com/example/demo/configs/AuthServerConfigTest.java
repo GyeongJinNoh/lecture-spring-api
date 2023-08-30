@@ -2,7 +2,7 @@ package com.example.demo.configs;
 
 import com.example.demo.accounts.AccountService;
 import com.example.demo.common.AppProperties;
-import com.example.demo.common.BaseControllerTest;
+import com.example.demo.common.BaseTest;
 import com.example.demo.common.TestDescription;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class AuthServerConfigTest extends BaseControllerTest {
+public class AuthServerConfigTest extends BaseTest {
     @Autowired
     AccountService accountService;
 

@@ -1,11 +1,13 @@
 package com.example.demo;
 
-import com.example.demo.common.BaseControllerTest;
+import com.example.demo.common.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
-class DemoApplicationTests extends BaseControllerTest {
+@ActiveProfiles("tests")
+class DemoApplicationTests extends BaseTest {
 
 	@Test
 	void contextLoads() {
